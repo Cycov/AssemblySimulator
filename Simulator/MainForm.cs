@@ -14,6 +14,7 @@ namespace Simulator
             coreMemory = new Memory();
             registerSP.Value = 0x8000;
             stackDisplay.Init(coreMemory, 5476, registerSP.Value);
+            memorySegmentDisplay1.Init(coreMemory, registerSP.Value);
         }
     }
 }

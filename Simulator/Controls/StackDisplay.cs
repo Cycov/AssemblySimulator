@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Simulator.Controls
 {
-    public partial class StackDisplay : UserControl
+    public partial class StackDisplay : MemoryDisplay
     {
         [Category("Definitions")]
         public int StackSize
@@ -18,15 +18,6 @@ namespace Simulator.Controls
             get { return m_stackSize;  }
         }
         private int m_stackSize = 16;
-
-        private ushort segment;
-
-        private readonly int lineHeight = 14;
-        private Font boldedFont;
-
-        private int maxLines;
-
-        protected Memory memory;
 
         public StackDisplay()
         {
@@ -47,9 +38,6 @@ namespace Simulator.Controls
             if (size % 2 != 0)
                 throw new ArgumentException("Please use a even size");
             m_stackSize = size;
-            this.segment = segment;
-            this.memory = memory;
-            this.memory.OnMemoryModified += Memory_OnMemoryModified;
             if (m_stackSize / 2 < maxLines)
             {
                 vScrollBar.Visible = false;
@@ -59,6 +47,8 @@ namespace Simulator.Controls
             {
                 vScrollBar.Maximum = m_stackSize - 42;
             }
+
+            base.Init(memory, segment);
         }
 
         private void Memory_OnMemoryModified(object sender, EvArgs.MemoryModifiedEventArgs e)
@@ -72,20 +62,10 @@ namespace Simulator.Controls
             e.Graphics.FillRectangle(Brushes.LightGray, 0, 0, 50f, Height);
             e.Graphics.FillRectangle(Brushes.LightBlue, 0, 0, Width, 14f);
 
-            e.Graphics.DrawString("Offset", boldedFont, Brushes.Black, 5, 2);
-            e.Graphics.DrawString("Value", boldedFont, Brushes.Black, 70f, 2);
+            e.Graphics.DrawString("Offset", boldedFont, Brushes.Black, 5, 1);
+            e.Graphics.DrawString("Value", boldedFont, Brushes.Black, 70f, 1);
 
-            if (memory == null) //just for the designer
-            {
-                int offset = 0;
-                for (int i = 1; i <= maxLines; i++, offset += 2)
-                {
-                    //Draw line number
-                    e.Graphics.DrawString("0x" + offset.ToString("X4"), Font, Brushes.Black, 2, i * lineHeight);
-                    e.Graphics.DrawString("0xFFFF", boldedFont, Brushes.BlueViolet, 60f, i * lineHeight);
-                }
-            }
-            else 
+            if (memory != null) //just for the designer
             {
                 int offset = vScrollBar.Value;
                 int lines = m_stackSize - offset;
