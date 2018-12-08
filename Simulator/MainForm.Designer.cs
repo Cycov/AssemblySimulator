@@ -28,9 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.runBtn = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.stackDisplay = new Simulator.Controls.StackDisplay();
             this.registerFLAGS = new Simulator.Controls.Flags.FlagsRegister();
             this.registerIP = new Simulator.Controls.Register();
             this.registerDI = new Simulator.Controls.Register();
@@ -45,14 +50,12 @@
             this.registerBX = new Simulator.Controls.Register();
             this.registerCS = new Simulator.Controls.Register();
             this.registerAX = new Simulator.Controls.Register();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.stackDisplay = new Simulator.Controls.StackDisplay();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // runBtn
             // 
-            this.runBtn.Location = new System.Drawing.Point(136, 337);
+            this.runBtn.Location = new System.Drawing.Point(282, 337);
             this.runBtn.Name = "runBtn";
             this.runBtn.Size = new System.Drawing.Size(75, 23);
             this.runBtn.TabIndex = 0;
@@ -90,6 +93,39 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Registers";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Location = new System.Drawing.Point(217, 185);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(272, 146);
+            this.groupBox2.TabIndex = 3;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Memory";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(30, 337);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 5;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(136, 334);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Set Random";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // stackDisplay
+            // 
+            this.stackDisplay.Location = new System.Drawing.Point(496, 15);
+            this.stackDisplay.Name = "stackDisplay";
+            this.stackDisplay.Size = new System.Drawing.Size(125, 375);
+            this.stackDisplay.TabIndex = 4;
             // 
             // registerFLAGS
             // 
@@ -268,36 +304,24 @@
             this.registerAX.TabIndex = 0;
             this.registerAX.Value = ((ushort)(0));
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Location = new System.Drawing.Point(217, 185);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(272, 146);
-            this.groupBox2.TabIndex = 3;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Memory";
-            // 
-            // stackDisplay
-            // 
-            this.stackDisplay.Location = new System.Drawing.Point(496, 15);
-            this.stackDisplay.Name = "stackDisplay";
-            this.stackDisplay.Size = new System.Drawing.Size(125, 375);
-            this.stackDisplay.TabIndex = 4;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(630, 402);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.stackDisplay);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.runBtn);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "Intel 8086 Simulator";
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -322,6 +346,8 @@
         private Controls.Flags.FlagsRegister registerFLAGS;
         private System.Windows.Forms.GroupBox groupBox2;
         private Controls.StackDisplay stackDisplay;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button1;
     }
 }
 
