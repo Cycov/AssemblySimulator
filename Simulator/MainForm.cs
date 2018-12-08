@@ -17,10 +17,5 @@ namespace Simulator
             stackDisplay.Init(coreMemory, 5476, registerSP.Value);
             memorySegmentDisplay1.Init(coreMemory, registerSP.Value);
         }
-
-        private void button1_Click(object sender, System.EventArgs e)
-        {
-            coreMemory.SetWord(int.Parse(textBox1.Text), (ushort)(new Random()).Next(0, 0xFFFF));
-        }
     }
 }
