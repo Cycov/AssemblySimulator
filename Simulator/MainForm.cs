@@ -15,6 +15,7 @@ namespace Simulator
             coreMemory = new Memory();
             registerSP.Value = 0;
             stackDisplay.Init(coreMemory, 5476, registerSP.Value);
+            memorySegmentDisplay1.Init(coreMemory, registerSP.Value);
         }
 
         private void button1_Click(object sender, System.EventArgs e)
