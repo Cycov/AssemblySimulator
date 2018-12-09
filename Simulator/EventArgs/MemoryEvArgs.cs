@@ -8,8 +8,8 @@ namespace Simulator.EvArgs
 {
     public class MemoryModifiedEventArgs : System.EventArgs
     {
-        public int Adress;
-        public byte ValueSize;
+        public int Adress { get; }
+        public byte ValueSize { get; }
         public MemoryModifiedEventArgs(int adress, byte valueSize)
         {
             Adress = adress;
@@ -18,8 +18,8 @@ namespace Simulator.EvArgs
     }
     public class MemoryByteModifiedEventArgs : System.EventArgs
     {
-        public byte Value;
-        public int Adress;
+        public byte Value { get; }
+        public int Adress { get; }
         public MemoryByteModifiedEventArgs(int adress, byte value)
         {
             Value = value;
@@ -28,8 +28,8 @@ namespace Simulator.EvArgs
     }
     public class MemoryWordModifiedEventArgs : System.EventArgs
     {
-        public ushort Value;
-        public int Adress;
+        public ushort Value { get; }
+        public int Adress { get; }
         public MemoryWordModifiedEventArgs(int adress, ushort value)
         {
             Value = value;
@@ -38,8 +38,8 @@ namespace Simulator.EvArgs
     }
     public class MemoryDWordModifiedEventArgs : System.EventArgs
     {
-        public UInt32 Value;
-        public int Adress;
+        public UInt32 Value { get; }
+        public int Adress { get; }
         public MemoryDWordModifiedEventArgs(int adress, UInt32 value)
         {
             Value = value;
@@ -48,12 +48,22 @@ namespace Simulator.EvArgs
     }
     public class MemoryQWordModifiedEventArgs : System.EventArgs
     {
-        public UInt64 Value;
-        public int Adress;
+        public UInt64 Value { get; }
+        public int Adress { get; }
         public MemoryQWordModifiedEventArgs(int adress, UInt64 value)
         {
             Value = value;
             Adress = adress;
+        }
+    }
+    public class RegisterModifiedEventArgs : System.EventArgs
+    {
+        public string Name { get; }
+        public ushort Value { get; }
+        public RegisterModifiedEventArgs(string name, ushort value)
+        {
+            Name = name;
+            Value = value;
         }
     }
 }

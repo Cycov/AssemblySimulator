@@ -27,6 +27,7 @@ namespace Simulator.Controls
             {
                 m_value = value;
                 Invalidate();
+                ValueChanged?.Invoke(this, new EvArgs.RegisterModifiedEventArgs(RegisterName, value));
             }
         }
         private ushort m_value = 0;
@@ -65,6 +66,8 @@ namespace Simulator.Controls
 
         private SolidBrush generalUseBrush;
 
+        public event EventHandler<EvArgs.RegisterModifiedEventArgs> ValueChanged;
+
         public Register()
         {
             InitializeComponent();
@@ -82,10 +85,10 @@ namespace Simulator.Controls
         {
             if (Readonly)
                 return;
-            int result;
-            if ((result = NumericalValueEditor.ShowDialog(Value)) > -1)
+            NumericalValueEditor valueEditor = new NumericalValueEditor(Value);
+            if (valueEditor.ShowDialog() == DialogResult.OK)
             {
-                Value = (ushort)result;
+                Value = valueEditor.Value;
             }
         }
     }

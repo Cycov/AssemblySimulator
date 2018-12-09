@@ -84,9 +84,11 @@
             this.Controls.Add(this.decreaseBtn);
             this.Controls.Add(this.valueTb);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.KeyPreview = true;
             this.Name = "NumericalValueEditor";
             this.Text = "Enter new value";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NumericalValueEditor_FormClosing);
+            this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.NumericalValueEditor_PreviewKeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

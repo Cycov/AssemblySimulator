@@ -14,7 +14,7 @@ namespace Simulator.Controls
     {
         public ushort Value
         {
-            get; set;
+            get; protected set;
         }
 
         public NumericalValueEditor(ushort value)
@@ -53,19 +53,19 @@ namespace Simulator.Controls
             valueTb.Text = Value.ToString("X");
         }
 
-        public static int ShowDialog(ushort value)
-        {
-            NumericalValueEditor valueEditor = new NumericalValueEditor(value);
-            if (valueEditor.ShowDialog() == DialogResult.OK)
-                return valueEditor.Value;
-            else
-                return -1;
-        }
-
         private void okBtn_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
             Close();
+        }
+
+        private void NumericalValueEditor_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                DialogResult = DialogResult.Cancel;
+                Close();
+            }
         }
     }
 }

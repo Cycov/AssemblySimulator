@@ -8,11 +8,11 @@ namespace Simulator
         public byte[] Locations { get; protected set; }
         public readonly int Size = 1048576;
 
-        public event EventHandler<MemoryByteModifiedEventArgs> OnMemoryByteModified;
-        public event EventHandler<MemoryWordModifiedEventArgs> OnMemoryWordModified;
-        public event EventHandler<MemoryDWordModifiedEventArgs> OnMemoryDWordModified;
-        public event EventHandler<MemoryQWordModifiedEventArgs> OnMemoryQWordModified;
-        public event EventHandler<MemoryModifiedEventArgs> OnMemoryModified;
+        public event EventHandler<MemoryByteModifiedEventArgs> MemoryByteModified;
+        public event EventHandler<MemoryWordModifiedEventArgs> MemoryWordModified;
+        public event EventHandler<MemoryDWordModifiedEventArgs> MemoryDWordModified;
+        public event EventHandler<MemoryQWordModifiedEventArgs> MemoryQWordModified;
+        public event EventHandler<MemoryModifiedEventArgs> MemoryModified;
 
         public Memory()
         {
@@ -29,21 +29,19 @@ namespace Simulator
             if (adress > Size)
                 throw new IndexOutOfRangeException("Adress out of addresable memory: " + adress.ToString());
             Locations[adress] = value;
-            OnMemoryByteModified?.Invoke(this, new MemoryByteModifiedEventArgs(adress, value));
-            OnMemoryModified?.Invoke(this, new MemoryModifiedEventArgs(adress, 8));
+            MemoryByteModified?.Invoke(this, new MemoryByteModifiedEventArgs(adress, value));
+            MemoryModified?.Invoke(this, new MemoryModifiedEventArgs(adress, 8));
         }
-
         public void SetWord(int adress, ushort value)
         {
             if (adress > Size)
                 throw new IndexOutOfRangeException("Adress out of addresable memory: " + adress.ToString());
             Locations[adress] = (byte)value;
             Locations[adress + 1] = (byte)(value >> 8);
-            OnMemoryWordModified?.Invoke(this, new MemoryWordModifiedEventArgs(adress, value));
-            OnMemoryModified?.Invoke(this, new MemoryModifiedEventArgs(adress, 16));
+            MemoryWordModified?.Invoke(this, new MemoryWordModifiedEventArgs(adress, value));
+            MemoryModified?.Invoke(this, new MemoryModifiedEventArgs(adress, 16));
         }
-
-        public void SetDWord(int adress, ushort value)
+        public void SetDWord(int adress, UInt32 value)
         {
             if (adress > Size)
                 throw new IndexOutOfRangeException("Adress out of addresable memory: " + adress.ToString());
@@ -51,11 +49,10 @@ namespace Simulator
             Locations[adress + 1] = (byte)(value >> 8);
             Locations[adress + 2] = (byte)(value >> 16);
             Locations[adress + 3] = (byte)(value >> 24);
-            OnMemoryDWordModified?.Invoke(this, new MemoryDWordModifiedEventArgs(adress, value));
-            OnMemoryModified?.Invoke(this, new MemoryModifiedEventArgs(adress, 32));
+            MemoryDWordModified?.Invoke(this, new MemoryDWordModifiedEventArgs(adress, value));
+            MemoryModified?.Invoke(this, new MemoryModifiedEventArgs(adress, 32));
         }
-
-        public void SetQWord(int adress, ushort value)
+        public void SetQWord(int adress, UInt64 value)
         {
             if (adress > Size)
                 throw new IndexOutOfRangeException("Adress out of addresable memory: " + adress.ToString());
@@ -67,8 +64,8 @@ namespace Simulator
             Locations[adress + 5] = (byte)(value >> 40);
             Locations[adress + 6] = (byte)(value >> 48);
             Locations[adress + 7] = (byte)(value >> 56);
-            OnMemoryQWordModified?.Invoke(this, new MemoryQWordModifiedEventArgs(adress, value));
-            OnMemoryModified?.Invoke(this, new MemoryModifiedEventArgs(adress, 64));
+            MemoryQWordModified?.Invoke(this, new MemoryQWordModifiedEventArgs(adress, value));
+            MemoryModified?.Invoke(this, new MemoryModifiedEventArgs(adress, 64));
         }
 
         public byte GetByte(int adress)
@@ -86,23 +83,23 @@ namespace Simulator
                            (Locations[adress + 1] << 8));
             return word;
         }
-        public Int32 GetDWord(int adress)
+        public UInt32 GetDWord(int adress)
         {
-            Int32 dword;
+            UInt32 dword;
             if (adress > Size)
                 throw new IndexOutOfRangeException("Adress out of addresable memory: " + adress.ToString());
-            dword = (Int32)(Locations[adress] |
+            dword = (UInt32)(Locations[adress] |
                            (Locations[adress + 1] << 8) |
                            (Locations[adress + 2] << 16) |
                            (Locations[adress + 3] << 24));
             return dword;
         }
-        public Int64 GetQWord(int adress)
+        public UInt64 GetQWord(int adress)
         {
-            Int64 qword;
+            UInt64 qword;
             if (adress > Size)
                 throw new IndexOutOfRangeException("Adress out of addresable memory: " + adress.ToString());
-            qword = (Int64)(Locations[adress] |
+            qword = (UInt64)(Locations[adress] |
                            (Locations[adress + 1] << 8) |
                            (Locations[adress + 2] << 16) |
                            (Locations[adress + 3] << 24) |
@@ -111,6 +108,40 @@ namespace Simulator
                            (Locations[adress + 6] << 48) |
                            (Locations[adress + 7] << 56));
             return qword;
+        }
+
+        public void SetByte(ushort segment, ushort offset, byte value)
+        {
+            SetByte((segment << 4) + offset, value);
+        }
+        public void SetWord(ushort segment, ushort offset, ushort value)
+        {
+            SetWord((segment << 4) + offset, value);
+        }
+        public void SetDWord(ushort segment, ushort offset, UInt32 value)
+        {
+            SetDWord((segment << 4) + offset, value);
+        }
+        public void SetQWord(ushort segment, ushort offset, UInt64 value)
+        {
+            SetQWord((segment << 4) + offset, value);
+        }
+
+        public byte GetByte(ushort segment, ushort adress)
+        {
+            return GetByte((segment << 4) + adress);
+        }
+        public ushort GetWord(ushort segment, ushort adress)
+        {
+            return GetWord((segment << 4) + adress);
+        }
+        public UInt32 GetDWord(ushort segment, ushort adress)
+        {
+            return GetDWord((segment << 4) + adress);
+        }
+        public UInt64 GetQWord(ushort segment, ushort adress)
+        {
+            return GetQWord((segment << 4) + adress);
         }
     }
 }

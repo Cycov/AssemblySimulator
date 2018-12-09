@@ -7,7 +7,7 @@ namespace Simulator.Controls.Flags
 {
     public partial class FlagsRegister : UserControl
     {
-        private Dictionary<Flags, Flag> flagsCheckboxes;
+        protected Dictionary<Flags, Flag> flagsCheckboxes;
 
         public enum Flags
         {

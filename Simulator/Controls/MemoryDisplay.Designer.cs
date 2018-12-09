@@ -38,6 +38,7 @@
             this.vScrollBar.Name = "vScrollBar";
             this.vScrollBar.Size = new System.Drawing.Size(21, 205);
             this.vScrollBar.TabIndex = 0;
+            this.vScrollBar.Maximum = ushort.MaxValue;
             this.vScrollBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.vScrollBar_Scroll);
             // 
             // MemoryDisplay
@@ -47,13 +48,16 @@
             this.Controls.Add(this.vScrollBar);
             this.Name = "MemoryDisplay";
             this.Size = new System.Drawing.Size(418, 205);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.MemoryDisplay_Paint);
+            this.AutoScroll = true;
+            this.Click += MemoryDisplay_Click;
+            this.DoubleClick += MemoryDisplay_DoubleClick;
+            this.Scroll += MemoryDisplay_Scroll;
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.VScrollBar vScrollBar;
+        protected System.Windows.Forms.VScrollBar vScrollBar;
     }
 }

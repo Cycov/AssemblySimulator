@@ -28,24 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.vScrollBar = new System.Windows.Forms.VScrollBar();
             this.SuspendLayout();
-            // 
-            // vScrollBar
-            // 
-            this.vScrollBar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.vScrollBar.Location = new System.Drawing.Point(108, 0);
-            this.vScrollBar.Maximum = 10;
-            this.vScrollBar.Name = "vScrollBar";
-            this.vScrollBar.Size = new System.Drawing.Size(17, 375);
-            this.vScrollBar.TabIndex = 0;
-            this.vScrollBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.vScrollBar_Scroll);
             // 
             // StackDisplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.vScrollBar);
             this.Name = "StackDisplay";
             this.Size = new System.Drawing.Size(125, 375);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.StackDisplay_Paint);
@@ -54,7 +42,5 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.VScrollBar vScrollBar;
     }
 }
