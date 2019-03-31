@@ -40,7 +40,6 @@ namespace Simulator.Controls
                 vScrollBar.Visible = false;
                 maxLines = base.size / 2;
             }
-
             this.registerSS = registerSS;
             this.registerSS.ValueChanged += RegisterSS_ValueChanged;
 

@@ -99,6 +99,7 @@
       <DependentUpon>StackDisplay.cs</DependentUpon>
     </Compile>
     <Compile Include="EventArgs\MemoryEvArgs.cs" />
+    <Compile Include="GraphicsExtensions.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +107,15 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Memory.cs" />
+    <Compile Include="Microprocessor\DrawnObjects\ALU.cs" />
+    <Compile Include="Microprocessor\DrawnObjects\Arrow.cs" />
+    <Compile Include="Microprocessor\DrawnObjects\Line.cs" />
+    <Compile Include="Microprocessor\MicroprocessorDisplay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Microprocessor\MicroprocessorDisplay.Designer.cs">
+      <DependentUpon>MicroprocessorDisplay.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Controls\Flags\FlagsRegister.resx">
@@ -128,6 +138,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Microprocessor\MicroprocessorDisplay.resx">
+      <DependentUpon>MicroprocessorDisplay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

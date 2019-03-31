@@ -31,24 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.runBtn = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.registerFLAGS = new Simulator.Controls.Flags.FlagsRegister();
-            this.registerIP = new Simulator.Controls.Register();
-            this.registerDI = new Simulator.Controls.Register();
-            this.registerSI = new Simulator.Controls.Register();
-            this.registerES = new Simulator.Controls.Register();
-            this.registerDX = new Simulator.Controls.Register();
-            this.registerBP = new Simulator.Controls.Register();
-            this.registerSS = new Simulator.Controls.Register();
-            this.registerCX = new Simulator.Controls.Register();
-            this.registerSP = new Simulator.Controls.Register();
-            this.registerDS = new Simulator.Controls.Register();
-            this.registerBX = new Simulator.Controls.Register();
-            this.registerCS = new Simulator.Controls.Register();
-            this.registerAX = new Simulator.Controls.Register();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.memorySegmentDisplay1 = new Simulator.Controls.MemorySegmentDisplay();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.stackDisplay = new Simulator.Controls.StackDisplay();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,6 +50,24 @@
             this.dumpToFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.codeDisplay1 = new Simulator.Controls.CodeDisplay();
+            this.stackDisplay = new Simulator.Controls.StackDisplay();
+            this.memorySegmentDisplay1 = new Simulator.Controls.MemorySegmentDisplay();
+            this.registerFLAGS = new Simulator.Controls.Flags.FlagsRegister();
+            this.registerIP = new Simulator.Controls.Register();
+            this.registerDI = new Simulator.Controls.Register();
+            this.registerSI = new Simulator.Controls.Register();
+            this.registerES = new Simulator.Controls.Register();
+            this.registerDX = new Simulator.Controls.Register();
+            this.registerBP = new Simulator.Controls.Register();
+            this.registerSS = new Simulator.Controls.Register();
+            this.registerCX = new Simulator.Controls.Register();
+            this.registerSP = new Simulator.Controls.Register();
+            this.registerDS = new Simulator.Controls.Register();
+            this.registerBX = new Simulator.Controls.Register();
+            this.registerCS = new Simulator.Controls.Register();
+            this.registerAX = new Simulator.Controls.Register();
+            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.microprocessorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -105,6 +107,220 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Registers";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.memorySegmentDisplay1);
+            this.groupBox2.Location = new System.Drawing.Point(12, 352);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(390, 146);
+            this.groupBox2.TabIndex = 3;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Memory";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.stackDisplay);
+            this.groupBox3.Location = new System.Drawing.Point(417, 27);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(142, 471);
+            this.groupBox3.TabIndex = 5;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Stack";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(328, 541);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 6;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.debugToolStripMenuItem,
+            this.dataToolStripMenuItem,
+            this.viewToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(571, 24);
+            this.menuStrip1.TabIndex = 7;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.loadToolStripMenuItem,
+            this.clearToolStripMenuItem,
+            this.exitToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "&File";
+            // 
+            // loadToolStripMenuItem
+            // 
+            this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
+            this.loadToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.loadToolStripMenuItem.Text = "&Load";
+            // 
+            // clearToolStripMenuItem
+            // 
+            this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
+            this.clearToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
+            this.clearToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.clearToolStripMenuItem.Text = "&Clear";
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.exitToolStripMenuItem.Text = "&Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // debugToolStripMenuItem
+            // 
+            this.debugToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.runToolStripMenuItem,
+            this.stepToolStripMenuItem,
+            this.restartToolStripMenuItem});
+            this.debugToolStripMenuItem.Name = "debugToolStripMenuItem";
+            this.debugToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.debugToolStripMenuItem.Text = "&Debug";
+            // 
+            // runToolStripMenuItem
+            // 
+            this.runToolStripMenuItem.Name = "runToolStripMenuItem";
+            this.runToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
+            this.runToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.runToolStripMenuItem.Text = "&Run";
+            // 
+            // stepToolStripMenuItem
+            // 
+            this.stepToolStripMenuItem.Name = "stepToolStripMenuItem";
+            this.stepToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F6;
+            this.stepToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.stepToolStripMenuItem.Text = "&Step";
+            // 
+            // restartToolStripMenuItem
+            // 
+            this.restartToolStripMenuItem.Name = "restartToolStripMenuItem";
+            this.restartToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F12;
+            this.restartToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.restartToolStripMenuItem.Text = "Res&tart";
+            // 
+            // dataToolStripMenuItem
+            // 
+            this.dataToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.initialiseIVTToolStripMenuItem,
+            this.zeroAllMemoryToolStripMenuItem,
+            this.zeroRegistersToolStripMenuItem,
+            this.dumpToFileToolStripMenuItem});
+            this.dataToolStripMenuItem.Name = "dataToolStripMenuItem";
+            this.dataToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.dataToolStripMenuItem.Text = "D&ata";
+            // 
+            // initialiseIVTToolStripMenuItem
+            // 
+            this.initialiseIVTToolStripMenuItem.Name = "initialiseIVTToolStripMenuItem";
+            this.initialiseIVTToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
+            this.initialiseIVTToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.initialiseIVTToolStripMenuItem.Text = "&Initialise IVT";
+            // 
+            // zeroAllMemoryToolStripMenuItem
+            // 
+            this.zeroAllMemoryToolStripMenuItem.Name = "zeroAllMemoryToolStripMenuItem";
+            this.zeroAllMemoryToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F9;
+            this.zeroAllMemoryToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.zeroAllMemoryToolStripMenuItem.Text = "&Zero all memory";
+            // 
+            // zeroRegistersToolStripMenuItem
+            // 
+            this.zeroRegistersToolStripMenuItem.Name = "zeroRegistersToolStripMenuItem";
+            this.zeroRegistersToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F10;
+            this.zeroRegistersToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.zeroRegistersToolStripMenuItem.Text = "Z&ero registers";
+            // 
+            // dumpToFileToolStripMenuItem
+            // 
+            this.dumpToFileToolStripMenuItem.Name = "dumpToFileToolStripMenuItem";
+            this.dumpToFileToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
+            this.dumpToFileToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.dumpToFileToolStripMenuItem.Text = "&Dump to file";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.codeDisplay1);
+            this.groupBox4.Location = new System.Drawing.Point(11, 27);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(218, 319);
+            this.groupBox4.TabIndex = 8;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Code";
+            // 
+            // codeDisplay1
+            // 
+            this.codeDisplay1.AutoScroll = true;
+            this.codeDisplay1.BackColor = System.Drawing.Color.White;
+            this.codeDisplay1.BytesPerLine = 2;
+            this.codeDisplay1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.codeDisplay1.HeaderBackground = System.Drawing.Color.LightBlue;
+            this.codeDisplay1.HeaderForeground = System.Drawing.Color.Black;
+            this.codeDisplay1.Location = new System.Drawing.Point(3, 16);
+            this.codeDisplay1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.codeDisplay1.Name = "codeDisplay1";
+            this.codeDisplay1.OffsetsBackground = System.Drawing.Color.LightGray;
+            this.codeDisplay1.OffsetsForeground = System.Drawing.Color.Black;
+            this.codeDisplay1.SelectedOffset = ((ushort)(0));
+            this.codeDisplay1.Size = new System.Drawing.Size(212, 300);
+            this.codeDisplay1.TabIndex = 0;
+            this.codeDisplay1.ValuesBackground = System.Drawing.Color.White;
+            this.codeDisplay1.ValueSelected = System.Drawing.Color.Red;
+            this.codeDisplay1.ValuesForeground = System.Drawing.Color.BlueViolet;
+            // 
+            // stackDisplay
+            // 
+            this.stackDisplay.AutoScroll = true;
+            this.stackDisplay.BackColor = System.Drawing.Color.White;
+            this.stackDisplay.BytesPerLine = 2;
+            this.stackDisplay.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.stackDisplay.HeaderBackground = System.Drawing.Color.LightBlue;
+            this.stackDisplay.HeaderForeground = System.Drawing.Color.Black;
+            this.stackDisplay.Location = new System.Drawing.Point(3, 16);
+            this.stackDisplay.Margin = new System.Windows.Forms.Padding(4);
+            this.stackDisplay.Name = "stackDisplay";
+            this.stackDisplay.OffsetsBackground = System.Drawing.Color.LightGray;
+            this.stackDisplay.OffsetsForeground = System.Drawing.Color.Black;
+            this.stackDisplay.SelectedOffset = ((ushort)(0));
+            this.stackDisplay.Size = new System.Drawing.Size(136, 452);
+            this.stackDisplay.TabIndex = 4;
+            this.stackDisplay.ValuesBackground = System.Drawing.Color.White;
+            this.stackDisplay.ValueSelected = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.stackDisplay.ValuesForeground = System.Drawing.Color.SteelBlue;
+            this.stackDisplay.Load += new System.EventHandler(this.stackDisplay_Load);
+            // 
+            // memorySegmentDisplay1
+            // 
+            this.memorySegmentDisplay1.AutoScroll = true;
+            this.memorySegmentDisplay1.BackColor = System.Drawing.Color.White;
+            this.memorySegmentDisplay1.BytesPerLine = 12;
+            this.memorySegmentDisplay1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.memorySegmentDisplay1.HeaderBackground = System.Drawing.Color.LightBlue;
+            this.memorySegmentDisplay1.HeaderForeground = System.Drawing.Color.Black;
+            this.memorySegmentDisplay1.Location = new System.Drawing.Point(3, 16);
+            this.memorySegmentDisplay1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.memorySegmentDisplay1.Name = "memorySegmentDisplay1";
+            this.memorySegmentDisplay1.OffsetsBackground = System.Drawing.Color.LightGray;
+            this.memorySegmentDisplay1.OffsetsForeground = System.Drawing.Color.Black;
+            this.memorySegmentDisplay1.SelectedOffset = ((ushort)(0));
+            this.memorySegmentDisplay1.Size = new System.Drawing.Size(384, 127);
+            this.memorySegmentDisplay1.TabIndex = 0;
+            this.memorySegmentDisplay1.ValuesBackground = System.Drawing.Color.White;
+            this.memorySegmentDisplay1.ValueSelected = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.memorySegmentDisplay1.ValuesForeground = System.Drawing.Color.SteelBlue;
+            this.memorySegmentDisplay1.Load += new System.EventHandler(this.memorySegmentDisplay1_Load);
             // 
             // registerFLAGS
             // 
@@ -297,218 +513,20 @@
             this.registerAX.TabIndex = 0;
             this.registerAX.Value = ((ushort)(0));
             // 
-            // groupBox2
+            // viewToolStripMenuItem
             // 
-            this.groupBox2.Controls.Add(this.memorySegmentDisplay1);
-            this.groupBox2.Location = new System.Drawing.Point(12, 352);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(390, 146);
-            this.groupBox2.TabIndex = 3;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Memory";
+            this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.microprocessorToolStripMenuItem});
+            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.viewToolStripMenuItem.Text = "&View";
             // 
-            // memorySegmentDisplay1
+            // microprocessorToolStripMenuItem
             // 
-            this.memorySegmentDisplay1.AutoScroll = true;
-            this.memorySegmentDisplay1.BackColor = System.Drawing.Color.White;
-            this.memorySegmentDisplay1.BytesPerLine = 12;
-            this.memorySegmentDisplay1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.memorySegmentDisplay1.HeaderBackground = System.Drawing.Color.LightBlue;
-            this.memorySegmentDisplay1.HeaderForeground = System.Drawing.Color.Black;
-            this.memorySegmentDisplay1.Location = new System.Drawing.Point(3, 16);
-            this.memorySegmentDisplay1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.memorySegmentDisplay1.Name = "memorySegmentDisplay1";
-            this.memorySegmentDisplay1.OffsetsBackground = System.Drawing.Color.LightGray;
-            this.memorySegmentDisplay1.OffsetsForeground = System.Drawing.Color.Black;
-            this.memorySegmentDisplay1.SelectedOffset = ((ushort)(0));
-            this.memorySegmentDisplay1.Size = new System.Drawing.Size(384, 127);
-            this.memorySegmentDisplay1.TabIndex = 0;
-            this.memorySegmentDisplay1.ValuesBackground = System.Drawing.Color.White;
-            this.memorySegmentDisplay1.ValueSelected = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.memorySegmentDisplay1.ValuesForeground = System.Drawing.Color.SteelBlue;
-            this.memorySegmentDisplay1.Load += new System.EventHandler(this.memorySegmentDisplay1_Load);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.stackDisplay);
-            this.groupBox3.Location = new System.Drawing.Point(417, 27);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(142, 471);
-            this.groupBox3.TabIndex = 5;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Stack";
-            // 
-            // stackDisplay
-            // 
-            this.stackDisplay.AutoScroll = true;
-            this.stackDisplay.BackColor = System.Drawing.Color.White;
-            this.stackDisplay.BytesPerLine = 2;
-            this.stackDisplay.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.stackDisplay.HeaderBackground = System.Drawing.Color.LightBlue;
-            this.stackDisplay.HeaderForeground = System.Drawing.Color.Black;
-            this.stackDisplay.Location = new System.Drawing.Point(3, 16);
-            this.stackDisplay.Margin = new System.Windows.Forms.Padding(4);
-            this.stackDisplay.Name = "stackDisplay";
-            this.stackDisplay.OffsetsBackground = System.Drawing.Color.LightGray;
-            this.stackDisplay.OffsetsForeground = System.Drawing.Color.Black;
-            this.stackDisplay.SelectedOffset = ((ushort)(0));
-            this.stackDisplay.Size = new System.Drawing.Size(136, 452);
-            this.stackDisplay.TabIndex = 4;
-            this.stackDisplay.ValuesBackground = System.Drawing.Color.White;
-            this.stackDisplay.ValueSelected = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.stackDisplay.ValuesForeground = System.Drawing.Color.SteelBlue;
-            this.stackDisplay.Load += new System.EventHandler(this.stackDisplay_Load);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(328, 541);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 6;
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.debugToolStripMenuItem,
-            this.dataToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(571, 24);
-            this.menuStrip1.TabIndex = 7;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // fileToolStripMenuItem
-            // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.loadToolStripMenuItem,
-            this.clearToolStripMenuItem,
-            this.exitToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "&File";
-            // 
-            // loadToolStripMenuItem
-            // 
-            this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-            this.loadToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
-            this.loadToolStripMenuItem.Text = "&Load";
-            // 
-            // clearToolStripMenuItem
-            // 
-            this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
-            this.clearToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.clearToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
-            this.clearToolStripMenuItem.Text = "&Clear";
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
-            this.exitToolStripMenuItem.Text = "&Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
-            // 
-            // debugToolStripMenuItem
-            // 
-            this.debugToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.runToolStripMenuItem,
-            this.stepToolStripMenuItem,
-            this.restartToolStripMenuItem});
-            this.debugToolStripMenuItem.Name = "debugToolStripMenuItem";
-            this.debugToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
-            this.debugToolStripMenuItem.Text = "&Debug";
-            // 
-            // runToolStripMenuItem
-            // 
-            this.runToolStripMenuItem.Name = "runToolStripMenuItem";
-            this.runToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
-            this.runToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
-            this.runToolStripMenuItem.Text = "&Run";
-            // 
-            // stepToolStripMenuItem
-            // 
-            this.stepToolStripMenuItem.Name = "stepToolStripMenuItem";
-            this.stepToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F6;
-            this.stepToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
-            this.stepToolStripMenuItem.Text = "&Step";
-            // 
-            // restartToolStripMenuItem
-            // 
-            this.restartToolStripMenuItem.Name = "restartToolStripMenuItem";
-            this.restartToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F12;
-            this.restartToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
-            this.restartToolStripMenuItem.Text = "Res&tart";
-            // 
-            // dataToolStripMenuItem
-            // 
-            this.dataToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.initialiseIVTToolStripMenuItem,
-            this.zeroAllMemoryToolStripMenuItem,
-            this.zeroRegistersToolStripMenuItem,
-            this.dumpToFileToolStripMenuItem});
-            this.dataToolStripMenuItem.Name = "dataToolStripMenuItem";
-            this.dataToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
-            this.dataToolStripMenuItem.Text = "D&ata";
-            // 
-            // initialiseIVTToolStripMenuItem
-            // 
-            this.initialiseIVTToolStripMenuItem.Name = "initialiseIVTToolStripMenuItem";
-            this.initialiseIVTToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
-            this.initialiseIVTToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.initialiseIVTToolStripMenuItem.Text = "&Initialise IVT";
-            // 
-            // zeroAllMemoryToolStripMenuItem
-            // 
-            this.zeroAllMemoryToolStripMenuItem.Name = "zeroAllMemoryToolStripMenuItem";
-            this.zeroAllMemoryToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F9;
-            this.zeroAllMemoryToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.zeroAllMemoryToolStripMenuItem.Text = "&Zero all memory";
-            // 
-            // zeroRegistersToolStripMenuItem
-            // 
-            this.zeroRegistersToolStripMenuItem.Name = "zeroRegistersToolStripMenuItem";
-            this.zeroRegistersToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F10;
-            this.zeroRegistersToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.zeroRegistersToolStripMenuItem.Text = "Z&ero registers";
-            // 
-            // dumpToFileToolStripMenuItem
-            // 
-            this.dumpToFileToolStripMenuItem.Name = "dumpToFileToolStripMenuItem";
-            this.dumpToFileToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
-            this.dumpToFileToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.dumpToFileToolStripMenuItem.Text = "&Dump to file";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.codeDisplay1);
-            this.groupBox4.Location = new System.Drawing.Point(11, 27);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(218, 319);
-            this.groupBox4.TabIndex = 8;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Code";
-            // 
-            // codeDisplay1
-            // 
-            this.codeDisplay1.AutoScroll = true;
-            this.codeDisplay1.BackColor = System.Drawing.Color.White;
-            this.codeDisplay1.BytesPerLine = 2;
-            this.codeDisplay1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.codeDisplay1.HeaderBackground = System.Drawing.Color.LightBlue;
-            this.codeDisplay1.HeaderForeground = System.Drawing.Color.Black;
-            this.codeDisplay1.Location = new System.Drawing.Point(3, 16);
-            this.codeDisplay1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.codeDisplay1.Name = "codeDisplay1";
-            this.codeDisplay1.OffsetsBackground = System.Drawing.Color.LightGray;
-            this.codeDisplay1.OffsetsForeground = System.Drawing.Color.Black;
-            this.codeDisplay1.SelectedOffset = ((ushort)(0));
-            this.codeDisplay1.Size = new System.Drawing.Size(212, 300);
-            this.codeDisplay1.TabIndex = 0;
-            this.codeDisplay1.ValuesBackground = System.Drawing.Color.White;
-            this.codeDisplay1.ValueSelected = System.Drawing.Color.Red;
-            this.codeDisplay1.ValuesForeground = System.Drawing.Color.BlueViolet;
+            this.microprocessorToolStripMenuItem.Name = "microprocessorToolStripMenuItem";
+            this.microprocessorToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.microprocessorToolStripMenuItem.Text = "&Microprocessor window";
+            this.microprocessorToolStripMenuItem.Click += new System.EventHandler(this.microprocessorToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -579,6 +597,8 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.ToolStripMenuItem dumpToFileToolStripMenuItem;
         private Controls.CodeDisplay codeDisplay1;
+        private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem microprocessorToolStripMenuItem;
     }
 }
 
