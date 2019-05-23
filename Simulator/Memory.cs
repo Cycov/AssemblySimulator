@@ -21,7 +21,8 @@ namespace Simulator
 
         public Memory(int size)
         {
-            throw new NotImplementedException();
+            Size = size;
+            Locations = new byte[Size];
         }
 
         public void SetByte(int adress, byte value)
